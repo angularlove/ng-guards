@@ -1,0 +1,25 @@
+<div class="cont">
+  <button class="btn btn-primary" (click)="backToList()">Back to main view</button>
+  <form [formGroup]="userForm">
+    <input formControlName="name">
+    <input formControlName="surName">
+    <button class="btn btn-primary" type="submit" (click)="save()">save</button>
+  </form>
+
+  <ng-template #discardModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Do you want to discard changes?</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Action cannot be undone</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="c('Close click')">Keep</button>
+      <button type="button" class="btn btn-primary" (click)="discardChanges()">Discard</button>
+    </div>
+  </ng-template>
+</div>
+
